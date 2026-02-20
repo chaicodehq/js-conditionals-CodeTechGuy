@@ -32,4 +32,25 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+
+  const season = {
+    Winter : [1,2,12],
+    Spring : [3,4,5],
+    Summer : [6,7,8],
+    Autumn : [9,10,11]
+  }
+  if(season.Winter.includes(month)) {
+    if(temperature<0) return {season : Object.keys(season)[0], activity : "skiing"};
+    else return {season : Object.keys(season)[0], activity : "ice skating"};
+  } else if(season.Spring.includes(month)) {
+    if(temperature>20) return {season : Object.keys(season)[1], activity : "hiking"};
+    else return {season : Object.keys(season)[1], activity : "museum visit"};
+  } else if(season.Summer.includes(month)) {
+    if(temperature>35) return {season : Object.keys(season)[2], activity : "swimming"};
+    else return {season : Object.keys(season)[2], activity : "cycling"};
+  } else if(season.Autumn.includes(month)) {
+    if(temperature>15) return {season : Object.keys(season)[3], activity : "nature walk"};
+    else return {season : Object.keys(season)[3], activity : "reading at a cafe"};
+  } else return null;
+
 }
